@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Flashback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/@babel/standalone@7.2.5/babel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.0.0/umd/react.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.0.0/umd/react-dom.development.js"></script>
@@ -75,6 +76,12 @@
         flipCard = () => {
           if (this.props.index === 0) {
             this.setState({ flipped: !this.state.flipped });
+          }
+        }
+
+        componentDidUpdate(prevProps, prevState) {
+          if (prevState.flipped == true) {
+            this.setState({ flipped: false });
           }
         }
 
